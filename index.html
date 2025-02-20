@@ -8,19 +8,49 @@
 </head>
 <body>
 <h1>My Portfolio</h1>
-<div class="project-container">
-<div class="project">
-    <img src="adv_tarot/images/theme.png" alt="AI Tarot Master">
-    <h2>AI Tarot Master</h2>
-    <p>An AI-powered tarot reading application.</p>
-    <a href="adv_tarot/index.html">View Project</a>
+<div class="icon-container">
+    <img src="adv_tarot/images/icon.png" alt="AI Tarot Master" onclick="showPage(1)" class="icon">
+    <img src="app_meiyi/images/icon.png" alt="AI 梅花易數" onclick="showPage(2)" class="icon">
 </div>
-<div class="project">
-    <img src="app_meiyi/images/theme.png" alt="AI 梅花易數">
-    <h2>AI 梅花易數</h2>
-    <p>An AI-powered application for the Chinese divination method, Mei Hua Yi Shu.</p>
-    <a href="app_meiyi/index.html">View Project</a>
+
+<div class="flip-book">
+    <div class="page" id="page1">
+        <div class="project">
+            <img src="adv_tarot/images/theme.png" alt="AI Tarot Master">
+            <h2>AI Tarot Master</h2>
+            <p>An AI-powered tarot reading application.</p>
+            <a href="adv_tarot/index.html">View Project</a>
+        </div>
+    </div>
+    <div class="page" id="page2">
+        <div class="project">
+            <img src="app_meiyi/images/theme.png" alt="AI 梅花易數">
+            <h2>AI 梅花易數</h2>
+            <p>An AI-powered application for the Chinese divination method, Mei Hua Yi Shu.</p>
+            <a href="app_meiyi/index.html">View Project</a>
+        </div>
+    </div>
 </div>
-</div>
+
+<script>
+let currentPage = 1;
+const totalPages = 2;
+
+function showPage(pageNumber) {
+    for (let i = 1; i <= totalPages; i++) {
+        const page = document.getElementById('page' + i);
+        page.style.display = 'none';
+    }
+    const page = document.getElementById('page' + pageNumber);
+    page.style.display = 'block';
+    currentPage = pageNumber;
+}
+
+// Show the first page initially
+showPage(currentPage);
+
+// Automatically flip the page every 5 seconds
+//setInterval(nextPage, 5000);
+</script>
 </body>
 </html>
